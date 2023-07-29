@@ -5,6 +5,7 @@ from scrapy.loader import ItemLoader
 from jobs_portal.items import JobsPortalItem
 from re import sub 
 from math import ceil 
+from scrapy.http.response.html import HtmlResponse
 
 
 
@@ -57,7 +58,7 @@ class EmploiticSpider(scrapy.Spider):
     def clean_keyword(self) -> str :
         return sub('\s+','+',self.keyword)
     
-    def get_total_pages(self,response):
+    def get_total_pages(self,response:HtmlResponse) -> int :
         return ceil(
             int(response.xpath('string(//span[@data-meta-total])').re_first('\d+'))/20
         )
