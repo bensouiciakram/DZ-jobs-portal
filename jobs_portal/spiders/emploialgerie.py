@@ -46,7 +46,7 @@ class EmploialgerieSpider(scrapy.Spider):
 
     def parse_job(self,response):
         loader = ItemLoader(JobsPortalItem(),response)
-        loader.add_value('freelancer_website',self.allowed_domains[0])
+        loader.add_value('freelance_website',self.allowed_domains[0])
         loader.add_value('job_url',response.url)
         loader.add_xpath('job_title','string(//h3)')
         loader.add_xpath('job_description','string(//div[@id="jobDesc"])')

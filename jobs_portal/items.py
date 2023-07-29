@@ -8,7 +8,7 @@ from itemloaders.processors import TakeFirst
 
 
 class JobsPortalItem(scrapy.Item):
-    freelancer_website = scrapy.Field(
+    freelance_website = scrapy.Field(
         output_processor=TakeFirst()
     )
     job_url = scrapy.Field(

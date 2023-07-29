@@ -47,7 +47,7 @@ class BaytSpider(scrapy.Spider):
 
     def parse_job(self,response):
         loader = ItemLoader(JobsPortalItem(),response)
-        loader.add_value('freelancer_website',self.allowed_domains[0])
+        loader.add_value('freelance_website',self.allowed_domains[0])
         loader.add_value('job_url',response.url)
         loader.add_xpath('job_title','string(//h1)',lambda x:[value.strip() for value in x])
         loader.add_xpath('job_description','string(//h2[contains(text(),"Job Description")]/following-sibling::div[1])')
