@@ -4,9 +4,19 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+from itemloaders.processors import TakeFirst 
 
 
 class JobsPortalItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    freelancer_website = scrapy.Field(
+        output_processor=TakeFirst()
+    )
+    job_url = scrapy.Field(
+        output_processor=TakeFirst()
+    )
+    job_title = scrapy.Field(
+        output_processor=TakeFirst()
+    )
+    job_description = scrapy.Field(
+        output_processor=TakeFirst()
+    )
